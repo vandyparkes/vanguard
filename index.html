@@ -3,100 +3,173 @@
 <head>
     <meta charset="UTF-8">
 <!-- ADD META TAG REQUIRED TO MAKE PAGE RESPONSIVE-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Vaanguard- Leading the Future of Success. Premier strategic investment and business acceleration firm for high-growth enterprises.">
     <meta name="keywords" content="business growth, strategic investment, mergers, corporate consulting, digital transformation">
 <!-- ADD META TAG FOR AUTHOR AND YOUR NAME-->
+    <meta name="author" content="Vandy Parkes">
     <title>Vanguard | Leading the Future of Success</title>
 <!-- ADD LINK TO YOUR CSS-->
 </head>
 
 <body>
 <!-- WRAP CONTENT IN VALIDATED, SEMANTIC HTML5 (SEE HINTS FOLDER LINKED TO IN THE CANVAS INSTRUCTIONS)-->
-    Vaanguard
-        Main Navigation
-            About
-            Services
-            Contact
+    <header>
+        <h1>Vanguard</h1>
+        <nav aria-label="Main navigation">
+            <h2>Main Navigation</h2>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        Innovation & Investment
-        We empower businesses to lead the future with high-impact strategies, market intelligence, and financial solutions that drive success.
-        Request a Consultation
+    <main>
+        <section id="hero" aria-labelledby="hero-heading">
+            <h2 id="hero-heading">Innovation &amp; Investment</h2>
+            <p>We empower businesses to lead the future with high-impact strategies, market intelligence, and financial solutions that drive success.</p>
+            <p><a href="#contact">Request a Consultation</a></p>
+        </section>
 
-        Our Expertise. Your Edge.
-        We redefine success by leveraging AI-driven analytics, market intelligence, and high-yield investment strategies to propel businesses forward. Whether you're looking to scale, optimize, or dominate, our strategic expertise delivers results.'
+        <section id="about" aria-labelledby="expertise-heading">
+            <h2 id="expertise-heading">Our Expertise. Your Edge.</h2>
+            <p>We redefine success by leveraging AI-driven analytics, market intelligence, and high-yield investment strategies to propel businesses forward. Whether you're looking to scale, optimize, or dominate, our strategic expertise delivers results.</p>
+        </section>
 
-        What We Offer
-            Strategic Growth Consulting
-            Unlock new revenue streams and optimize market expansion strategies.
+        <section id="services" aria-labelledby="offerings-heading">
+            <h2 id="offerings-heading">What We Offer</h2>
 
-            High-Impact Investment Solutions
-            Maximize returns with data-driven portfolio management.
+            <section aria-labelledby="growth-heading">
+                <h3 id="growth-heading">Strategic Growth Consulting</h3>
+                <p>Unlock new revenue streams and optimize market expansion strategies.</p>
+            </section>
 
-            Business Acceleration & Mergers
-            Identify opportunities for rapid growth and high-value acquisitions.
+            <section aria-labelledby="investment-heading">
+                <h3 id="investment-heading">High-Impact Investment Solutions</h3>
+                <p>Maximize returns with data-driven portfolio management.</p>
+            </section>
 
-            Digital Transformation
-            Stay at the forefront of industry advancements with AI, blockchain, and automation.
+            <section aria-labelledby="acceleration-heading">
+                <h3 id="acceleration-heading">Business Acceleration &amp; Mergers</h3>
+                <p>Identify opportunities for rapid growth and high-value acquisitions.</p>
+            </section>
 
-            Exclusive Executive Advisory Services
-            Personalized insights and leadership support for C-suite executives and high-net-worth investors.
+            <section aria-labelledby="digital-heading">
+                <h3 id="digital-heading">Digital Transformation</h3>
+                <p>Stay at the forefront of industry advancements with AI, blockchain, and automation.</p>
+            </section>
 
-            Corporate Innovation
-            Strategic implementation of new ideas, technologies, and processes to drive business growth, enhance competitive advantage, and adapt to evolving market demands.
+            <section aria-labelledby="advisory-heading">
+                <h3 id="advisory-heading">Exclusive Executive Advisory Services</h3>
+                <p>Personalized insights and leadership support for C-suite executives and high-net-worth investors.</p>
+            </section>
 
-            Proven Results
-            Our data-driven strategies have delivered outstanding ROI, leading to significant revenue growth.
+            <section aria-labelledby="innovation-heading">
+                <h3 id="innovation-heading">Corporate Innovation</h3>
+                <p>Strategic implementation of new ideas, technologies, and processes to drive business growth, enhance competitive advantage, and adapt to evolving market demands.</p>
+            </section>
+        </section>
 
-                Profits
-                Year
-                Revenue ($M)
-                Growth (%)
+        <section aria-labelledby="results-heading">
+            <h2 id="results-heading">Proven Results</h2>
+            <p>Our data-driven strategies have delivered outstanding ROI, leading to significant revenue growth.</p>
 
-                2020
-                $120M
-                30%
+            <section aria-labelledby="profits-table-heading">
+                <h3 id="profits-table-heading">Profits</h3>
+                <table>
+                    <caption>Revenue and growth by year</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Year</th>
+                            <th scope="col">Revenue ($M)</th>
+                            <th scope="col">Growth (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">2020</th>
+                            <td>$120M</td>
+                            <td>30%</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2021</th>
+                            <td>$180M</td>
+                            <td>50%</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2022</th>
+                            <td>$250M</td>
+                            <td>70%</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2023</th>
+                            <td>$340M</td>
+                            <td>85%</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2024</th>
+                            <td>$420M</td>
+                            <td>100%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
 
-                2021
-                $180M
-                50%
-
-                2022
-                $250M
-                70%
-
-                2023
-                $340M
-                85%
-
-                2024
-                $420M
-                100%
-
-                Growth
+            <section aria-labelledby="growth-chart-heading">
+                <h3 id="growth-chart-heading">Growth</h3>
 <!-- CODE PROVIDED FOR YOU, NOTHING TO DO FOR THE BAR CHART IN THE HTML-->
-                    <div  id="bar-chart">
+                <figure>
+                    <div id="bar-chart">
                         <div class="bar" data-year="2020" style="--height: 30%;"></div>
                         <div class="bar" data-year="2021" style="--height: 50%;"></div>
                         <div class="bar" data-year="2022" style="--height: 70%;"></div>
                         <div class="bar" data-year="2023" style="--height: 85%;"></div>
                         <div class="bar" data-year="2024" style="--height: 100%;"></div>
                     </div>
+                </figure>
+            </section>
+        </section>
 
-        Contact Us
-        Want to take your business to the next level? Get in touch with our elite team today.
+        <section id="contact" aria-labelledby="contact-heading">
+            <h2 id="contact-heading">Contact Us</h2>
+            <p>Want to take your business to the next level? Get in touch with our elite team today.</p>
 
-            Full Name
+            <form action="#" method="post">
+                <p>
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" name="full-name" autocomplete="name" required>
+                </p>
+                <p>
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" autocomplete="email" required>
+                </p>
+                <p>
+                    <label for="company">Company Name</label>
+                    <input type="text" id="company" name="company" autocomplete="organization">
+                </p>
+                <p>
+                    <label for="industry">Industry</label>
+                    <input type="text" id="industry" name="industry">
+                </p>
+                <p>
+                    <label for="message">How can we help you?</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </p>
+                <p>
+                    <button type="submit">Submit</button>
+                </p>
+            </form>
+        </section>
+    </main>
 
-            Email Address
-
-            Company Name
-
-            Industry
-
-            How can we help you?
-
-            Submit
-
-        For educational purposes only. 
-        Email: info@vaanguard.com 
-        Phone: 480.123.4567
+    <footer>
+        <small>For educational purposes only.</small>
+        <address>
+            Email: <a href="mailto:info@vaanguard.com">info@vaanguard.com</a><br>
+            Phone: <a href="tel:+14801234567">480.123.4567</a>
+        </address>
+    </footer>
+</body>
+</html>
