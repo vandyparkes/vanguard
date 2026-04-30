@@ -169,11 +169,26 @@ nav ul {
 }
 
 nav a {
+    display: inline-block;
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     font-size: 0.8rem;
     color: var(--white);
+    padding: 0.5rem 0.85rem;
+    border-radius: 0.35rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+    background-color: var(--blue);
+    color: var(--black);
+}
+
+nav a:focus-visible {
+    outline: 2px solid var(--blue-light);
+    outline-offset: 2px;
 }
 
 nav::after {
