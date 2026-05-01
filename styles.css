@@ -467,7 +467,6 @@ tbody td {
     font-weight: 700;
     margin-bottom: 0.75rem;
     width: 100%;
-    max-width: 900px;
 }
 
 #contact > p:first-of-type {
@@ -481,9 +480,6 @@ tbody td {
     display: grid;
     gap: 1.15rem;
     width: 100%;
-    max-width: 900px;
-    align-self: center;
-    margin-inline: auto;
 }
 
 #contact form p {
