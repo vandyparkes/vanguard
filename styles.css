@@ -104,6 +104,7 @@ img {
 }
 
 /* ADD TO "INNOVATION & INVESTMENT SECTION (Photo by Kevin Matos on Unsplash)" */
+
 #hero {
     position: relative;
     background:
@@ -200,6 +201,7 @@ header h1 {
 }
 
 /* ADD FLOATING SVG LOGO BEFORE THE H1 */
+
 header h1::before {
     content: "";
     position: absolute;
@@ -430,6 +432,7 @@ tbody td {
 }
 
 /* THIS ONE IS DONE FOR YOU */
+
 #bar-chart {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -446,6 +449,7 @@ tbody td {
 }
 
 /* ADD ON TRANSITION ON HEIGHT */
+
 #bar-chart .bar {
     width: 50px;
     background: var(--charcoal);
@@ -456,6 +460,7 @@ tbody td {
 }
 
 /* THIS ONE IS DONE FOR YOU */
+
 #bar-chart .bar::after {
     content: attr(data-year);
     position: absolute;
@@ -477,6 +482,7 @@ tbody td {
 }
 
 /* ADD ANIMATION ON stepUp for 1s ease-in-out forwards */
+
 @media (prefers-reduced-motion: no-preference) {
     #bar-chart .bar {
         animation: stepUp 1s ease-in-out forwards;
@@ -630,7 +636,6 @@ footer address {
         grid-column: 1 / -1;
     }
 
-    /* #results { grid-template-columns: 1fr 1fr; } — applied to inner layout below */
     #results .container {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -643,15 +648,11 @@ footer address {
         grid-column: 1 / -1;
     }
 
-    /* .results-container { flex-direction: row; justify-content: space-between; } — layout uses #results .container grid + two sections */
-
-    /* .results-table { width: 50%; } — each column is half of the results grid */
     .results-table {
         width: 100%;
         min-width: 0;
     }
 
-    /* .bar-chart { width: 50%; } */
     .bar-chart {
         width: 100%;
         max-width: 100%;
