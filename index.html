@@ -16,6 +16,7 @@
 <body>
 <!-- WRAP CONTENT IN VALIDATED, SEMANTIC HTML5 (SEE HINTS FOLDER LINKED TO IN THE CANVAS INSTRUCTIONS)-->
     <header>
+        <div class="container">
         <h1>Vanguard</h1>
         <nav aria-label="Main navigation">
             <h2>Main Navigation</h2>
@@ -25,21 +26,27 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
+        </div>
     </header>
 
     <main>
         <section id="hero" aria-labelledby="hero-heading">
+            <div class="container">
             <h2 id="hero-heading">Innovation &amp; Investment</h2>
             <p>We empower businesses to lead the future with high-impact strategies, market intelligence, and financial solutions that drive success.</p>
             <p><a href="#contact">Request a Consultation</a></p>
+            </div>
         </section>
 
         <section id="about" aria-labelledby="expertise-heading">
+            <div class="container">
             <h2 id="expertise-heading">Our Expertise. Your Edge.</h2>
             <p>We redefine success by leveraging AI-driven analytics, market intelligence, and high-yield investment strategies to propel businesses forward. Whether you're looking to scale, optimize, or dominate, our strategic expertise delivers results.</p>
+            </div>
         </section>
 
         <section id="services" aria-labelledby="offerings-heading">
+            <div class="container">
             <h2 id="offerings-heading">What We Offer</h2>
 
             <section aria-labelledby="growth-heading">
@@ -71,13 +78,15 @@
                 <h3 id="innovation-heading">Corporate Innovation</h3>
                 <p>Strategic implementation of new ideas, technologies, and processes to drive business growth, enhance competitive advantage, and adapt to evolving market demands.</p>
             </section>
+            </div>
         </section>
 
-        <section aria-labelledby="results-heading">
+        <section id="results" aria-labelledby="results-heading">
+            <div class="container">
             <h2 id="results-heading">Proven Results</h2>
             <p>Our data-driven strategies have delivered outstanding ROI, leading to significant revenue growth.</p>
 
-            <section aria-labelledby="profits-table-heading">
+            <section class="results-table" aria-labelledby="profits-table-heading">
                 <h3 id="profits-table-heading">Profits</h3>
                 <table>
                     <caption>Revenue and growth by year</caption>
@@ -122,18 +131,20 @@
                 <h3 id="growth-chart-heading">Growth</h3>
 <!-- CODE PROVIDED FOR YOU, NOTHING TO DO FOR THE BAR CHART IN THE HTML-->
                 <figure>
-                    <div id="bar-chart">
-                        <div class="bar" data-year="2020" style="--height: 30%;"></div>
-                        <div class="bar" data-year="2021" style="--height: 50%;"></div>
-                        <div class="bar" data-year="2022" style="--height: 70%;"></div>
-                        <div class="bar" data-year="2023" style="--height: 85%;"></div>
-                        <div class="bar" data-year="2024" style="--height: 100%;"></div>
-                    </div>
+                    <ul id="bar-chart" class="bar-chart">
+                        <li class="bar" data-year="2020" style="--height: 30%;"></li>
+                        <li class="bar" data-year="2021" style="--height: 50%;"></li>
+                        <li class="bar" data-year="2022" style="--height: 70%;"></li>
+                        <li class="bar" data-year="2023" style="--height: 85%;"></li>
+                        <li class="bar" data-year="2024" style="--height: 100%;"></li>
+                    </ul>
                 </figure>
             </section>
+            </div>
         </section>
 
         <section id="contact" aria-labelledby="contact-heading">
+            <div class="container">
             <h2 id="contact-heading">Contact Us</h2>
             <p>Want to take your business to the next level? Get in touch with our elite team today.</p>
 
@@ -162,15 +173,18 @@
                     <input type="submit" value="Submit">
                 </p>
             </form>
+            </div>
         </section>
     </main>
 
     <footer>
+        <div class="container">
         <small>For educational purposes only.</small>
         <address>
             Email: <a href="mailto:info@vaanguard.com">info@vaanguard.com</a><br>
             Phone: <a href="tel:+14801234567">480.123.4567</a>
         </address>
+        </div>
     </footer>
 </body>
 </html>

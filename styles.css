@@ -1,9 +1,10 @@
 /* CSS BY Vandy Parkes */
 
 /* IMPORTED FONTS */
+/* IMPORT "INTER" FROM GOOGLE FONTS */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 
-/* CSS REST */
+/* CSS RESET */
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -28,6 +29,7 @@ time, mark, audio, video {
     font: inherit;
     vertical-align: baseline;
 }
+/* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
@@ -54,41 +56,22 @@ table {
 /* ROOT VARIABLES */
 :root {
     --blue: #007bff;
-    --blue-light: #6ec5ff;
     --red: #ff4500;
     --white: #eaeaea;
-    --white-pure: #ffffff;
     --black: #000000;
     --charcoal: #333333;
-    --header-bg: #0a0a0a;
     --font: "Inter", sans-serif;
 }
 
-/* GLOBAL STYLES (mobile first/small) */
+/* GLOBAL STYLES (MOBILE FIRST (SMALL) */
+
+/* MIN-WIDTH OF THE PAGE SHOULD NOT GO BELOW 400PX */
+
+/* ADD A DIV WITH THE CLASS OF CONTAINER TO EVERY CONTENT CONTAINER THIS IS ALLOW THE BASE ELEMENTS TO BE 100% WIDTH, BUT CONSTRAIN THE ACTUAL CONTENT TO 90% */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(1.25rem);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes stepUp {
-    0% {
-        height: 0;
-    }
-    100% {
-        height: var(--height);
-    }
 }
 
 html {
@@ -96,7 +79,7 @@ html {
 }
 
 body {
-    min-width: 320px;
+    min-width: 400px;
     font-family: var(--font);
     background: var(--black);
     color: var(--white);
@@ -114,33 +97,134 @@ img {
     display: block;
 }
 
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ADD TO "INNOVATION & INVESTMENT SECTION (Photo by Kevin Matos on Unsplash)" */
+#hero {
+    position: relative;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+        url("images/vanguard-hero.jpg") no-repeat center center / cover;
+    height: 80vh;
+    min-height: 400px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 1rem;
+    overflow: hidden;
+}
+
+#hero::after {
+    content: "Photo by Kevin Matos on Unsplash";
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.65);
+    pointer-events: none;
+}
+
+#hero .container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+#hero h2 {
+    font-size: clamp(1.75rem, 5vw, 2.25rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+}
+
+#hero .container > p:first-of-type {
+    color: #e8e8e8;
+    line-height: 1.55;
+    margin-bottom: 0.5rem;
+}
+
+#hero .container > p:last-of-type {
+    margin-top: 1rem;
+}
+
+#hero a {
+    display: inline-block;
+    padding: 0.85rem 1.5rem;
+    border-radius: 0.5rem;
+    background: var(--blue);
+    color: #ffffff;
+    font-weight: 700;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+#hero a:hover,
+#hero a:focus-visible {
+    background: #c41e3a;
+    transform: translateY(-1px);
+}
+
 header {
+    width: 100%;
+    margin: 0;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--blue);
+    background: #0a0a0a;
+}
+
+header .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    width: 100%;
-    margin: 0;
-    padding: 1rem max(5%, calc((100% - 1200px) / 2));
-    border-bottom: 1px solid var(--blue);
-    background: var(--header-bg);
 }
 
 header h1 {
+    position: relative;
     display: flex;
     align-items: center;
-    gap: 0.65rem;
+    padding-left: 3.5rem;
     font-size: 1.35rem;
     font-weight: 700;
+    letter-spacing: -0.02em;
     color: var(--blue);
 }
 
+/* ADD FLOATING SVG LOGO BEFORE THE H1 */
 header h1::before {
     content: "";
-    flex-shrink: 0;
-    width: 2.75rem;
-    height: 2.75rem;
+    position: absolute;
+    left: -0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3.75rem;
+    height: 3.75rem;
     background: url("images/vanguard-logo.svg") no-repeat center / contain;
+}
+
+@keyframes logoFloat {
+    0%,
+    100% {
+        transform: translateY(-50%);
+    }
+    50% {
+        transform: translateY(calc(-50% - 4px));
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    header h1::before {
+        animation: logoFloat 3.5s ease-in-out infinite;
+    }
 }
 
 nav {
@@ -187,7 +271,7 @@ nav a:focus-visible {
 }
 
 nav a:focus-visible {
-    outline: 2px solid var(--blue-light);
+    outline: 2px solid #ffffff;
     outline-offset: 2px;
 }
 
@@ -200,93 +284,14 @@ nav::after {
     box-shadow: 0 6px 0 var(--white), 0 12px 0 var(--white);
 }
 
-#hero {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 80vh;
-    padding: 2rem 5%;
-    text-align: center;
-    overflow: hidden;
-    background:
-        radial-gradient(ellipse 85% 70% at 50% 45%, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.78) 70%),
-        linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
-        url("images/vanguard-hero.jpg") no-repeat center / cover;
-    background-color: #111;
-}
-
-#hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.2);
-    pointer-events: none;
-}
-
-#hero > * {
-    position: relative;
-    z-index: 1;
-    width: min(100%, 720px);
-    max-width: 90%;
-}
-
-#hero h2 {
-    font-size: clamp(1.75rem, 5vw, 2.25rem);
-    font-weight: 700;
-    color: var(--white-pure);
-    margin-bottom: 0.75rem;
-    line-height: 1.2;
-}
-
-#hero > p:first-of-type {
-    color: #e8e8e8;
-    line-height: 1.55;
-    margin-bottom: 0.5rem;
-}
-
-#hero p:last-of-type {
-    margin-top: 1rem;
-}
-
-#hero a {
-    display: inline-block;
-    padding: 0.85rem 1.5rem;
-    border-radius: 0.5rem;
-    background: var(--blue);
-    color: var(--white-pure);
-    font-weight: 700;
-    transition: background 0.2s ease, transform 0.2s ease;
-}
-
-#hero a:hover,
-#hero a:focus-visible {
-    background: #c41e3a;
-    transform: translateY(-1px);
-}
-
 main > section {
     width: 100%;
-    padding: 3rem max(5%, calc((100% - 1200px) / 2));
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    main > section {
-        animation: fadeInUp 0.75s ease-out both;
-    }
-
-    main > section:nth-of-type(1) { animation-delay: 0.05s; }
-    main > section:nth-of-type(2) { animation-delay: 0.1s; }
-    main > section:nth-of-type(3) { animation-delay: 0.12s; }
-    main > section:nth-of-type(4) { animation-delay: 0.14s; }
-    main > section:nth-of-type(5) { animation-delay: 0.16s; }
-    main > section:nth-of-type(6) { animation-delay: 0.18s; }
+    padding: 3rem 0;
 }
 
 #about,
 #services {
-    background: var(--white-pure);
+    background: #ffffff;
     color: var(--black);
 }
 
@@ -297,42 +302,46 @@ main > section {
 main h2 {
     font-size: clamp(1.35rem, 3vw, 1.75rem);
     font-weight: 700;
+    letter-spacing: -0.03em;
     margin-bottom: 0.85rem;
     line-height: 1.25;
 }
 
-#about p {
+#about .container > p {
     max-width: 75ch;
     line-height: 1.6;
 }
 
-#about > h2,
-#services > h2,
-section[aria-labelledby="results-heading"] > h2 {
+#about > .container > h2,
+#services > .container > h2,
+#results > .container > h2 {
     margin-bottom: 1rem;
 }
 
-#services > h2 {
+#services > .container > h2 {
     text-align: left;
 }
 
 #services {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
     padding-top: 2rem;
 }
 
-#services > section {
+#services .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+}
+
+#services .container > section {
     background: var(--blue);
-    color: var(--white-pure);
+    color: #ffffff;
     padding: 1.25rem 1.35rem;
     border-radius: 0.5rem;
     transition: transform 0.22s ease;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    #services > section:hover {
+    #services .container > section:hover {
         transform: translateY(-6px);
     }
 }
@@ -349,21 +358,25 @@ section[aria-labelledby="results-heading"] > h2 {
     opacity: 0.95;
 }
 
-section[aria-labelledby="results-heading"] {
+#results {
     background: var(--blue);
-    color: var(--white-pure);
+    color: #ffffff;
 }
 
-section[aria-labelledby="results-heading"] > p {
+#results > .container > p {
     max-width: 75ch;
     margin-bottom: 0.25rem;
 }
 
-section[aria-labelledby="results-heading"] > section {
+#results .container > section {
     margin-top: 1.5rem;
 }
 
-section[aria-labelledby="results-heading"] h3 {
+#results .container > section:first-of-type {
+    margin-top: 0;
+}
+
+#results h3 {
     font-weight: 700;
     margin-bottom: 0.65rem;
     font-size: 1.1rem;
@@ -372,7 +385,7 @@ section[aria-labelledby="results-heading"] h3 {
 table {
     width: 100%;
     background: var(--black);
-    color: var(--white-pure);
+    color: #ffffff;
     border-radius: 0.5rem;
     overflow: hidden;
 }
@@ -382,12 +395,12 @@ caption {
     text-align: left;
     font-weight: 600;
     background: #050505;
-    color: var(--white-pure);
+    color: #ffffff;
 }
 
 thead {
     background: var(--black);
-    color: var(--white-pure);
+    color: #ffffff;
 }
 
 thead th {
@@ -413,9 +426,10 @@ td {
 
 tbody th,
 tbody td {
-    color: var(--white-pure);
+    color: #ffffff;
 }
 
+/* THIS ONE IS DONE FOR YOU */
 #bar-chart {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -425,46 +439,60 @@ tbody td {
     height: 300px;
     width: 100%;
     max-width: 800px;
+    margin: 0;
     padding: 1rem 0.5rem 2rem;
     position: relative;
+    list-style: none;
 }
 
-.bar {
-    width: min(3.25rem, 12vw);
+/* ADD ON TRANSITION ON HEIGHT */
+#bar-chart .bar {
+    width: 50px;
     background: var(--charcoal);
     border-radius: 10px;
     position: relative;
     height: 0;
-    transition: height 0.8s ease-in-out;
+    transition: height 1s ease-in-out;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .bar {
-        animation: stepUp 1s ease-in-out forwards;
-    }
-
-    .bar:nth-child(1) { animation-delay: 0s; }
-    .bar:nth-child(2) { animation-delay: 0.12s; }
-    .bar:nth-child(3) { animation-delay: 0.24s; }
-    .bar:nth-child(4) { animation-delay: 0.36s; }
-    .bar:nth-child(5) { animation-delay: 0.48s; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .bar {
-        height: var(--height);
-    }
-}
-
-.bar::after {
+/* THIS ONE IS DONE FOR YOU */
+#bar-chart .bar::after {
     content: attr(data-year);
     position: absolute;
     bottom: -1.65rem;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--white-pure);
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--white);
+}
+
+@keyframes stepUp {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: var(--height);
+    }
+}
+
+/* ADD ANIMATION ON stepUp for 1s ease-in-out forwards */
+@media (prefers-reduced-motion: no-preference) {
+    #bar-chart .bar {
+        animation: stepUp 1s ease-in-out forwards;
+    }
+
+    #bar-chart .bar:nth-child(1) { animation-delay: 0s; }
+    #bar-chart .bar:nth-child(2) { animation-delay: 0.12s; }
+    #bar-chart .bar:nth-child(3) { animation-delay: 0.24s; }
+    #bar-chart .bar:nth-child(4) { animation-delay: 0.36s; }
+    #bar-chart .bar:nth-child(5) { animation-delay: 0.48s; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #bar-chart .bar {
+        height: var(--height);
+    }
 }
 
 #contact {
@@ -473,22 +501,22 @@ tbody td {
     align-items: stretch;
     text-align: left;
     background: var(--black);
-    color: var(--white-pure);
+    color: #ffffff;
     padding-bottom: 3.5rem;
 }
 
-#contact > h2 {
+#contact > .container > h2 {
     font-size: clamp(1.5rem, 3vw, 1.85rem);
     font-weight: 700;
     margin-bottom: 0.75rem;
     width: 100%;
 }
 
-#contact > p:first-of-type {
+#contact > .container > p:first-of-type {
     margin-bottom: 1.75rem;
     max-width: 50ch;
     opacity: 0.92;
-    color: var(--white-pure);
+    color: #ffffff;
 }
 
 #contact form {
@@ -506,7 +534,7 @@ tbody td {
     font-size: 0.85rem;
     font-weight: 600;
     margin-bottom: 0.4rem;
-    color: var(--white-pure);
+    color: #ffffff;
 }
 
 #contact form input:not([type="submit"]),
@@ -517,7 +545,7 @@ tbody td {
     padding: 0.75rem 0.85rem;
     border: 2px solid var(--blue);
     border-radius: 4px;
-    background: var(--white-pure);
+    background: #ffffff;
     color: var(--black);
 }
 
@@ -537,7 +565,7 @@ tbody td {
     font-family: var(--font);
     font-size: 1rem;
     font-weight: 700;
-    color: var(--white-pure);
+    color: #ffffff;
     background: var(--blue);
     border: none;
     border-radius: 8px;
@@ -556,15 +584,15 @@ tbody td {
 footer {
     width: 100%;
     margin: 0;
-    padding: 2.25rem max(5%, calc((100% - 1200px) / 2)) 2.75rem;
+    padding: 2.25rem 0 2.75rem;
     text-align: center;
-    color: var(--white-pure);
+    color: #ffffff;
     font-size: 0.9rem;
     background: var(--black);
 }
 
 footer a {
-    color: var(--blue-light);
+    color: var(--blue);
     text-decoration: underline;
 }
 
@@ -593,32 +621,56 @@ footer address {
         font-size: 2.5rem;
     }
 
-    #services {
+    #services .container {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 1rem;
     }
 
-    #services > h2 {
+    #services .container > h2 {
         grid-column: 1 / -1;
     }
 
-    section[aria-labelledby="results-heading"] {
+    /* #results { grid-template-columns: 1fr 1fr; } — applied to inner layout below */
+    #results .container {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 1.5rem 2rem;
         align-items: start;
     }
 
-    section[aria-labelledby="results-heading"] > h2,
-    section[aria-labelledby="results-heading"] > p {
+    #results .container > h2,
+    #results .container > p {
         grid-column: 1 / -1;
+    }
+
+    /* .results-container { flex-direction: row; justify-content: space-between; } — layout uses #results .container grid + two sections */
+
+    /* .results-table { width: 50%; } — each column is half of the results grid */
+    .results-table {
+        width: 100%;
+        min-width: 0;
+    }
+
+    /* .bar-chart { width: 50%; } */
+    .bar-chart {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    #results table {
+        width: 100%;
+    }
+
+    #results figure {
+        width: 100%;
+        max-width: 100%;
     }
 }
 
 /* MEDIA QUERY LARGE */
 @media (min-width: 1024px) {
     header {
-        padding: 1.15rem max(5%, calc((100% - 1200px) / 2));
+        padding: 1.15rem 0;
     }
 
     header h1 {
@@ -631,10 +683,10 @@ footer address {
     }
 
     main > section {
-        padding: 3.5rem max(5%, calc((100% - 1200px) / 2));
+        padding: 3.5rem 0;
     }
 
-    #services {
+    #services .container {
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 1rem;
     }
